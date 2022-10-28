@@ -1,0 +1,40 @@
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+#include <time.h>
+#include <math.h>
+
+using namespace std;
+
+
+int main()
+{
+	setlocale(LC_ALL, "Ukrainian");
+	double x;
+	double y;
+	double R;
+	srand((unsigned)time(NULL));
+	cout << "введiть R бiльший за 0 = "; cin >> R;
+	for (int i = 0; i < 10; i++)
+	{
+		x = -(2 * R) + rand() * (2 * R + 2 * R) / RAND_MAX;
+		y = -(2 * R) + rand() * (2 * R + 2 * R) / RAND_MAX;
+		
+
+		if ((x <= R && y <= R && x >= 0 && y >= 0) || (x <= 0 && y <= 0 && x >= -R && y >= -R) || (pow(x + R, 2) + pow(y - R, 2) >= pow(R, 2) && y >= 0 && x <= 0 && y <= R && x <= R)
+			|| (pow(x - R, 2) + pow(y + R, 2) >= pow(R, 2) && y <= 0 && x >= 0 && y <= R && x <= R))
+		{
+			cout << setw(8) << setprecision(4) << x << " "
+				<< setw(8) << setprecision(4) << y << " " << "yes" << endl;
+	
+		}
+
+		else {
+			cout << setw(8) << setprecision(4) << x << " "
+				<< setw(8) << setprecision(4) << y << " " << "no" << endl;
+		}
+	}
+
+	return 0;
+}
+
